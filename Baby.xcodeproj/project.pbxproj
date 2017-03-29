@@ -8,20 +8,42 @@
 
 /* Begin PBXBuildFile section */
 		66B073941E77D5A5007A978D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B073931E77D5A5007A978D /* AppDelegate.swift */; };
-		66B073961E77D5A5007A978D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B073951E77D5A5007A978D /* ViewController.swift */; };
 		66B073991E77D5A5007A978D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66B073971E77D5A5007A978D /* Main.storyboard */; };
 		66B0739B1E77D5A5007A978D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66B0739A1E77D5A5007A978D /* Assets.xcassets */; };
 		66B0739E1E77D5A5007A978D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66B0739C1E77D5A5007A978D /* LaunchScreen.storyboard */; };
+		66B073AD1E77D7FC007A978D /* LCTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B073A81E77D7FC007A978D /* LCTabbar.m */; };
+		66B073AE1E77D7FC007A978D /* LCTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B073AA1E77D7FC007A978D /* LCTabBarButton.m */; };
+		66B073AF1E77D7FC007A978D /* LCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66B073AC1E77D7FC007A978D /* LCTabBarController.m */; };
+		66B073B61E77E78C007A978D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B073B51E77E78C007A978D /* MainViewController.swift */; };
+		66B073B91E7A2636007A978D /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B073B81E7A2636007A978D /* MainCell.swift */; };
+		66B073BB1E7A26EF007A978D /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B073BA1E7A26EF007A978D /* Helpers.swift */; };
+		66EB61FB1E7B6C3600242429 /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB61F91E7B6C3600242429 /* UserInfoController.swift */; };
+		66EB61FC1E7B6C3600242429 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB61FA1E7B6C3600242429 /* UserViewController.swift */; };
+		66EB61FE1E7B6C6400242429 /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB61FD1E7B6C6400242429 /* PublishViewController.swift */; };
+		66EB62021E7B732300242429 /* HireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB62011E7B732300242429 /* HireViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		66B073901E77D5A5007A978D /* Baby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B073931E77D5A5007A978D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		66B073951E77D5A5007A978D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		66B073981E77D5A5007A978D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		66B0739A1E77D5A5007A978D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66B0739D1E77D5A5007A978D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66B0739F1E77D5A5007A978D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66B073A71E77D7FC007A978D /* LCTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTabbar.h; sourceTree = "<group>"; };
+		66B073A81E77D7FC007A978D /* LCTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTabbar.m; sourceTree = "<group>"; };
+		66B073A91E77D7FC007A978D /* LCTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTabBarButton.h; sourceTree = "<group>"; };
+		66B073AA1E77D7FC007A978D /* LCTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTabBarButton.m; sourceTree = "<group>"; };
+		66B073AB1E77D7FC007A978D /* LCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTabBarController.h; sourceTree = "<group>"; };
+		66B073AC1E77D7FC007A978D /* LCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTabBarController.m; sourceTree = "<group>"; };
+		66B073B11E77D965007A978D /* Baby-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Baby-Bridging-Header.h"; sourceTree = "<group>"; };
+		66B073B51E77E78C007A978D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		66B073B81E7A2636007A978D /* MainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		66B073BA1E7A26EF007A978D /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		66EB61F91E7B6C3600242429 /* UserInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoController.swift; sourceTree = "<group>"; };
+		66EB61FA1E7B6C3600242429 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		66EB61FD1E7B6C6400242429 /* PublishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
+		66EB62011E7B732300242429 /* HireViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HireViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +76,91 @@
 		66B073921E77D5A5007A978D /* Baby */ = {
 			isa = PBXGroup;
 			children = (
+				66EB62031E7B769400242429 /* Login */,
+				66EB61F71E7B6C2600242429 /* UserVC */,
+				66B073B41E77E773007A978D /* MainVC */,
+				66B073B71E7A20F3007A978D /* CustomView */,
+				66B073B01E77D942007A978D /* Helpers */,
+				66B073A51E77D643007A978D /* 3rdparty */,
 				66B073931E77D5A5007A978D /* AppDelegate.swift */,
-				66B073951E77D5A5007A978D /* ViewController.swift */,
 				66B073971E77D5A5007A978D /* Main.storyboard */,
 				66B0739A1E77D5A5007A978D /* Assets.xcassets */,
 				66B0739C1E77D5A5007A978D /* LaunchScreen.storyboard */,
 				66B0739F1E77D5A5007A978D /* Info.plist */,
 			);
 			path = Baby;
+			sourceTree = "<group>";
+		};
+		66B073A51E77D643007A978D /* 3rdparty */ = {
+			isa = PBXGroup;
+			children = (
+				66B073A61E77D7FC007A978D /* CustomBar */,
+			);
+			path = 3rdparty;
+			sourceTree = "<group>";
+		};
+		66B073A61E77D7FC007A978D /* CustomBar */ = {
+			isa = PBXGroup;
+			children = (
+				66B073A71E77D7FC007A978D /* LCTabbar.h */,
+				66B073A81E77D7FC007A978D /* LCTabbar.m */,
+				66B073A91E77D7FC007A978D /* LCTabBarButton.h */,
+				66B073AA1E77D7FC007A978D /* LCTabBarButton.m */,
+				66B073AB1E77D7FC007A978D /* LCTabBarController.h */,
+				66B073AC1E77D7FC007A978D /* LCTabBarController.m */,
+			);
+			path = CustomBar;
+			sourceTree = "<group>";
+		};
+		66B073B01E77D942007A978D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				66B073BA1E7A26EF007A978D /* Helpers.swift */,
+				66B073B11E77D965007A978D /* Baby-Bridging-Header.h */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		66B073B41E77E773007A978D /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				66B073B51E77E78C007A978D /* MainViewController.swift */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		66B073B71E7A20F3007A978D /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				66B073B81E7A2636007A978D /* MainCell.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		66EB61F71E7B6C2600242429 /* UserVC */ = {
+			isa = PBXGroup;
+			children = (
+				66EB61F81E7B6C3600242429 /* UserFuction */,
+				66EB61F91E7B6C3600242429 /* UserInfoController.swift */,
+				66EB61FA1E7B6C3600242429 /* UserViewController.swift */,
+			);
+			path = UserVC;
+			sourceTree = "<group>";
+		};
+		66EB61F81E7B6C3600242429 /* UserFuction */ = {
+			isa = PBXGroup;
+			children = (
+				66EB61FD1E7B6C6400242429 /* PublishViewController.swift */,
+				66EB62011E7B732300242429 /* HireViewController.swift */,
+			);
+			path = UserFuction;
+			sourceTree = "<group>";
+		};
+		66EB62031E7B769400242429 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +236,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66B073961E77D5A5007A978D /* ViewController.swift in Sources */,
+				66EB61FE1E7B6C6400242429 /* PublishViewController.swift in Sources */,
+				66B073AD1E77D7FC007A978D /* LCTabbar.m in Sources */,
+				66EB61FC1E7B6C3600242429 /* UserViewController.swift in Sources */,
+				66B073BB1E7A26EF007A978D /* Helpers.swift in Sources */,
+				66EB61FB1E7B6C3600242429 /* UserInfoController.swift in Sources */,
 				66B073941E77D5A5007A978D /* AppDelegate.swift in Sources */,
+				66B073B91E7A2636007A978D /* MainCell.swift in Sources */,
+				66B073AF1E77D7FC007A978D /* LCTabBarController.m in Sources */,
+				66EB62021E7B732300242429 /* HireViewController.swift in Sources */,
+				66B073AE1E77D7FC007A978D /* LCTabBarButton.m in Sources */,
+				66B073B61E77E78C007A978D /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,9 +369,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PA5REWWP2Y;
 				INFOPLIST_FILE = Baby/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.work.Baby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Baby/Helpers/Baby-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -274,9 +384,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PA5REWWP2Y;
 				INFOPLIST_FILE = Baby/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.work.Baby;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Baby/Helpers/Baby-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -300,6 +412,7 @@
 				66B073A41E77D5A5007A978D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
