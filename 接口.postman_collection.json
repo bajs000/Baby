@@ -1,0 +1,353 @@
+{
+	"variables": [],
+	"info": {
+		"name": "GOCMS接口",
+		"_postman_id": "9db4e290-b3ec-b334-7368-7033f4a34191",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "回复评论的接口",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"接口名称： 获取验证码接口",
+							"",
+							"请求参数：",
+							"phone 表示用户手机 ",
+							"",
+							"返回 ",
+							"{\"msg\":\"1\",\"retval\":\"\"} ",
+							"",
+							"msge=1 表示成功发送 0表示发送失败 ",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://112.74.124.86/ybb/index.php?app=appsmember&act=coments_replay&user_name=18223359202&password=123456&coments_id=回复id 为整数&rec_id=此条商品评论的id&comments=评论的内容string 字符串",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "获取验证码接口"
+			},
+			"response": []
+		},
+		{
+			"name": "注册接口",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"接口名称： 注册接口",
+							"",
+							"请求参数：",
+							"user_name:用户的电话号码",
+							"password:密码",
+							"reg_code:获取的验证码",
+							"",
+							"",
+							"返回 ",
+							"{\"msg\":\"1\",\"retval\":\"\"} ",
+							"",
+							"msge=1 表示成功发送 0表示注册失败",
+							"retval 表示提示信息"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://112.74.124.86/ybb/index.php?app=appsmember&act=register&user_name=18223359202&password=123456&reg_code=161853",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "注册接口"
+			},
+			"response": []
+		},
+		{
+			"name": "登陆接口",
+			"request": {
+				"url": "http://112.74.124.86/ybb/index.php?app=appsmember&act=login&user_name=18223359202&password=123456",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "user_name:用户的电话号码\npassword:密码\nreg_code:获取的验证码\n\n\n返回 \n{\"msg\":\"1\",\"retval\":\"\"} \n\nmsge=1 表示成功发送 0表示注册失败\nretval 表示提示信息 "
+			},
+			"response": []
+		},
+		{
+			"name": "用户中心接口",
+			"request": {
+				"url": "http://112.74.124.86/ybb/index.php?app=AppsMember&user_name=18223359202&password=123456",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "编辑用户接口",
+			"request": {
+				"url": "http://112.74.124.86/ybb/index.php?app=AppsMember&act=edit&user_name=18223359202&password=123456&birth_date=2012-12-11&gender=1&nickname=xiaobai&portrait=头像文件FILE格式&is_post=1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "商品详情接口",
+			"request": {
+				"url": "http://112.74.124.86/ybb/index.php?app=AppsGoods&act=index&id=333",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "商品的上传",
+			"request": {
+				"url": "http://112.74.124.86/index.php?app=AppsGoods&act=balance_log",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "首页接口",
+			"request": {
+				"url": "http://112.74.124.86/ybb/index.php?app=appsdefault&act=coments_detail&comment_id=评论id",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "订单列表",
+			"request": {
+				"url": "http://112.74.124.86/ybb/index.php?app=appsbuyer_order&user_name=18223359202&password=123456",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "订单详情",
+			"request": {
+				"url": "http://112.74.124.86/index.php?app=appsbuyer_order&act=view&user_name=18223359202&password=123456",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "待评价 订单",
+			"request": {
+				"url": "http://112.74.124.86//index.php?app=appsbuyer_order&act=to_evaluate",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "提交评价",
+			"request": {
+				"url": "http://112.74.124.86//index.php?app=appsbuyer_order&act=evaluate",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "准备下单",
+			"request": {
+				"url": "http://112.74.124.86/index.php?app=appsorder",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "商品详情",
+			"request": {
+				"url": "http://112.74.124.86/index.php?app=appsgoods&act=index",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "上传商品",
+			"request": {
+				"url": "http://112.74.124.86/index.php?app=appsgoods&act=upload",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "下架商品",
+			"request": {
+				"url": "http://112.74.124.86/index.php?app=appsgoods&act=xiajia",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "我上传的商品",
+			"request": {
+				"url": "http://112.74.124.86/ybb/index.php?app=appsgoods&act=mygoods",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "获取评论",
+			"request": {
+				"url": "http://112.74.124.86/ybb/index.php?app=appsgoods&act=comments&id=33",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "我的银行卡接口",
+			"request": {
+				"url": "http://112.74.124.86/ybb/index.php?app=appsMebmber&act=mybank",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "辑我的银行卡",
+			"request": {
+				"url": "http://112.74.124.86/ybb/index.php?app=appsMebmber&act=editmybank",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "添加银行卡",
+			"request": {
+				"url": "http://112.74.124.86/index.php?app=appsMebmber&act=addmybank",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "提现接口",
+			"request": {
+				"url": "http://112.74.124.86/index.php?app=appsMebmber&act=tixian",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "删除订单接口",
+			"request": {
+				"url": "http://112.74.124.86/ybb/index.php?app=appsbuyer_order&user_name=18223359202&password=123456&act=drop&order_id=订单ID",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "上传图片接口",
+			"request": {
+				"url": "http://112.74.124.86/index.php?app=appsbuyer_order&act=up_laod_api&user_name=18223359202&password=123456&FILE属性=image",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "评论回复详情接口",
+			"request": {
+				"url": "http://112.74.124.86/ybb/index.php?app=appsdefault&act=coments_detail&comment_id=评论id",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "推荐评论页面",
+			"request": {
+				"url": "http://112.74.124.86/ybb/index.php?app=appsdefault&act=get_recomends_list",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "验证码获取接口",
+			"request": {
+				"url": "http://112.74.124.86/ybb/index.php?app=appsmember&act=get_reg_code&phone=18223359202",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

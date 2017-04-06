@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="alD-TO-BYT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="alD-TO-BYT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -167,27 +167,6 @@
                                                 </collectionViewCell>
                                             </cells>
                                         </collectionView>
-                                        <visualEffectView autoresizesSubviews="NO" opaque="NO" tag="99" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fh4-n4-rvx">
-                                            <rect key="frame" x="10" y="100" width="355" height="169"/>
-                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="eLw-hI-QS9">
-                                                <rect key="frame" x="0.0" y="0.0" width="355" height="169"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <subviews>
-                                                    <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ajq-gX-YSM">
-                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="169"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="iSp-4F-yul">
-                                                            <rect key="frame" x="0.0" y="0.0" width="355" height="169"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        </view>
-                                                        <vibrancyEffect>
-                                                            <blurEffect style="light"/>
-                                                        </vibrancyEffect>
-                                                    </visualEffectView>
-                                                </subviews>
-                                            </view>
-                                            <blurEffect style="light"/>
-                                        </visualEffectView>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXY-hn-ALb">
                                             <rect key="frame" x="10" y="289" width="355" height="38.5"/>
                                             <attributedString key="attributedText">
@@ -221,20 +200,16 @@
                                         <constraint firstAttribute="bottom" secondItem="cPP-BW-ZtJ" secondAttribute="bottom" constant="55" id="39I-Gm-3zX"/>
                                         <constraint firstItem="ZIg-yR-Kdm" firstAttribute="leading" secondItem="dXY-hn-ALb" secondAttribute="leading" id="3R2-1c-oQS"/>
                                         <constraint firstItem="HjV-xV-qEf" firstAttribute="leading" secondItem="IEZ-E1-cqf" secondAttribute="leading" constant="12" id="6iZ-dH-8HQ"/>
-                                        <constraint firstItem="fh4-n4-rvx" firstAttribute="trailing" secondItem="RKE-Ke-Umh" secondAttribute="trailing" id="7oS-sV-1GA"/>
                                         <constraint firstItem="fYC-m2-akP" firstAttribute="centerY" secondItem="HjV-xV-qEf" secondAttribute="centerY" id="Bu5-Qw-Rf9"/>
                                         <constraint firstAttribute="trailing" secondItem="dXY-hn-ALb" secondAttribute="trailing" constant="10" id="F8P-xE-hUG"/>
-                                        <constraint firstItem="fh4-n4-rvx" firstAttribute="leading" secondItem="RKE-Ke-Umh" secondAttribute="leading" id="FRU-Qm-pqh"/>
                                         <constraint firstItem="fYC-m2-akP" firstAttribute="leading" secondItem="HjV-xV-qEf" secondAttribute="trailing" constant="8" id="GuP-Qj-v17"/>
                                         <constraint firstItem="dXY-hn-ALb" firstAttribute="top" secondItem="RKE-Ke-Umh" secondAttribute="bottom" priority="999" constant="20" id="S7V-Ki-JOc"/>
                                         <constraint firstItem="HjV-xV-qEf" firstAttribute="top" secondItem="IEZ-E1-cqf" secondAttribute="top" constant="20" id="YXP-hh-HgZ"/>
                                         <constraint firstAttribute="trailing" secondItem="xNL-Ff-Qcq" secondAttribute="trailing" constant="10" id="dXy-TE-g36"/>
                                         <constraint firstItem="cPP-BW-ZtJ" firstAttribute="leading" secondItem="IEZ-E1-cqf" secondAttribute="leading" id="dYH-iH-FdA"/>
-                                        <constraint firstItem="fh4-n4-rvx" firstAttribute="bottom" secondItem="RKE-Ke-Umh" secondAttribute="bottom" id="dgE-oi-uzp"/>
                                         <constraint firstAttribute="trailing" secondItem="RKE-Ke-Umh" secondAttribute="trailing" constant="10" id="iRm-cM-Bn4"/>
                                         <constraint firstItem="xNL-Ff-Qcq" firstAttribute="centerY" secondItem="fYC-m2-akP" secondAttribute="centerY" id="ly7-vJ-F8B"/>
                                         <constraint firstAttribute="trailing" secondItem="cPP-BW-ZtJ" secondAttribute="trailing" id="mlO-Xd-g6A"/>
-                                        <constraint firstItem="fh4-n4-rvx" firstAttribute="top" secondItem="RKE-Ke-Umh" secondAttribute="top" id="rNg-e6-wQe"/>
                                         <constraint firstItem="cPP-BW-ZtJ" firstAttribute="top" secondItem="dXY-hn-ALb" secondAttribute="bottom" constant="20" id="sjq-1V-UeV"/>
                                         <constraint firstItem="dXY-hn-ALb" firstAttribute="leading" secondItem="IEZ-E1-cqf" secondAttribute="leading" constant="10" id="vSI-zs-F5a"/>
                                         <constraint firstItem="RKE-Ke-Umh" firstAttribute="leading" secondItem="IEZ-E1-cqf" secondAttribute="leading" constant="10" id="y5w-RY-gte"/>

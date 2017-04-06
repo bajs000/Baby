@@ -106,7 +106,7 @@ class MainViewController: UITableViewController, UICollectionViewDelegate, UICol
 
     func cutCricleOnBackView(byView:UIView,centerPoint:CGPoint,radius:CGFloat) {
         let path = UIBezierPath(rect: byView.bounds)
-        let circle = UIBezierPath(arcCenter: centerPoint, radius: radius, startAngle: 0, endAngle: 2.0 * CGFloat(M_PI), clockwise: false)
+        let circle = UIBezierPath(arcCenter: centerPoint, radius: radius, startAngle: 0, endAngle: 2.0 * CGFloat(Double.pi), clockwise: false)
         path.append(circle)
         let maskLayer = CAShapeLayer()
         maskLayer.path = path.cgPath
