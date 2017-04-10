@@ -8,6 +8,7 @@
 
 #import "LCTabbar.h"
 #import "LCTabBarController.h"
+#import "Baby-Swift.h"
 #define BarButtonCount 3
 
 @interface LCTabbar()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
@@ -70,6 +71,17 @@
 
 
 - (void)btnClick:(UIButton *)button{
+    if (button.tag == 1 && UserModel.share.userId.length == 0) {
+        UIResponder *vc = self.nextResponder;
+        for (int i = 0; i < 10; i++) {
+            if ([vc isKindOfClass:[UITabBarController class]]) {
+                UINavigationController *nav = [((UIViewController *)vc).storyboard instantiateViewControllerWithIdentifier:@"loginNav"];
+                [((UIViewController *)vc) presentViewController:nav animated:true completion:nil];
+                return;
+            }
+            vc = vc.nextResponder;
+        }
+    }
     [self.delegate changeNav:_selectedBarButton.tag to:button.tag];
     _selectedBarButton.selected = NO;
     button.selected = YES;

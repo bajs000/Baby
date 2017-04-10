@@ -16,7 +16,7 @@ class Helpers : NSObject {
     }
     
     public class func baseImgUrl() -> String {
-        return "http://mingpinhui.cq1b1.com/"
+        return "http://112.74.124.86/ybb/"
     }
     
     public class func findSuperViewClass(_ className:AnyClass,with view:UIView) -> UIView? {

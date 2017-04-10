@@ -19,7 +19,8 @@
 
 #import "LCTabBarController.h"
 #import "LCTabbar.h"
-@interface LCTabBarController ()<UINavigationControllerDelegate,LCTabBarDelegate>
+
+@interface LCTabBarController ()<UINavigationControllerDelegate,LCTabBarDelegate,UITabBarControllerDelegate>
 
 @end
 
@@ -39,6 +40,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self setNavigationTheme];
+    
+    self.delegate = self;
     
     self.tabBar.hidden = YES;
     LCTabbar *lctabBar = [[LCTabbar alloc]initWithFrame:self.tabBar.bounds];
@@ -87,14 +90,12 @@
 
 -(void)cameraClick:(UIButton *)btn{
     self.selectedIndex = btn.tag;
+    [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"publishNav"] animated:true completion:nil];
 }
 
 -(void)changeNav:(NSInteger)from to:(NSInteger)to{
     self.selectedIndex = to;
 }
-
-
-
 
 #pragma mark navVC代理
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{

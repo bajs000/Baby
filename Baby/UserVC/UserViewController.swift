@@ -7,20 +7,26 @@
 //
 
 import UIKit
+import SVProgressHUD
+import SDWebImage
 
 class UserViewController: UITableViewController {
 
     @IBOutlet weak var nickName: UILabel!
     @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var moneyLabel: UILabel!
+    @IBOutlet weak var depositLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 49, 0)
         self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 49, 0)
+        self.avatar.layer.cornerRadius = 29
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.requestUserInfo()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
@@ -84,4 +90,31 @@ class UserViewController: UITableViewController {
     }
     
 
+    func requestUserInfo() -> Void{
+        SVProgressHUD.show()
+        NetworkModel.requestGet(["act":"index","user_id":UserModel.share.userId,"vp":UserModel.share.password]) { (dic) in
+            if Int((dic as! NSDictionary)["msg"] as! String) == 1 {
+                SVProgressHUD.dismiss()
+                let userInfo = (dic as! NSDictionary)["retval"] as! String
+                let data = userInfo.data(using: .utf8)
+                do {
+                    let jsonDic = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! NSDictionary
+                    let userDefault = UserDefaults.standard
+                    userDefault.set(jsonDic["nickname"], forKey: "NICKNAME")
+                    self.nickName.text = jsonDic["nickname"] as? String
+                    if jsonDic["portrait"] != nil &&  (jsonDic["portrait"] as! NSObject).isKind(of: NSString.self) && (jsonDic["portrait"] as! String) != "<null>" {
+                        self.avatar.sd_setImage(with: URL(string: Helpers.baseImgUrl() + (jsonDic["portrait"] as! String))!)
+                        userDefault.set(Helpers.baseImgUrl() + (jsonDic["portrait"] as! String), forKey: "AVATAR")
+                    }
+                    self.moneyLabel.text = jsonDic["balance"] as? String
+                    self.depositLabel.text = jsonDic["deposit"] as? String
+                }catch{
+                    
+                }
+            }else{
+                SVProgressHUD.showError(withStatus: (dic as! NSDictionary)["retval"] as! String)
+            }
+        }
+    }
+    
 }

@@ -11,3 +11,5 @@
 
 
 #endif /* Baby_Bridging_Header_h */
+
+#import <AFNetworking/AFNetworking.h>

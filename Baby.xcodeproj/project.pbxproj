@@ -18,6 +18,14 @@
 		66B073B61E77E78C007A978D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B073B51E77E78C007A978D /* MainViewController.swift */; };
 		66B073B91E7A2636007A978D /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B073B81E7A2636007A978D /* MainCell.swift */; };
 		66B073BB1E7A26EF007A978D /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B073BA1E7A26EF007A978D /* Helpers.swift */; };
+		66B41A611E971F9A00A5C6BF /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B41A5F1E971F9A00A5C6BF /* NetworkModel.swift */; };
+		66B41A621E971F9A00A5C6BF /* UIColor+More.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B41A601E971F9A00A5C6BF /* UIColor+More.swift */; };
+		66B41A641E97222E00A5C6BF /* UITextFieldFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B41A631E97222E00A5C6BF /* UITextFieldFactory.swift */; };
+		66B41A661E97258C00A5C6BF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B41A651E97258C00A5C6BF /* LoginViewController.swift */; };
+		66B41A681E972D6B00A5C6BF /* RegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B41A671E972D6B00A5C6BF /* RegistViewController.swift */; };
+		66B41A6A1E973BF300A5C6BF /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B41A691E973BF300A5C6BF /* UserModel.swift */; };
+		66B6726B1E9B6ABC002C939C /* PublishGoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B6726A1E9B6ABC002C939C /* PublishGoodsViewController.swift */; };
+		66B6726D1E9B70AD002C939C /* PublishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B6726C1E9B70AD002C939C /* PublishCell.swift */; };
 		66EB61FB1E7B6C3600242429 /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB61F91E7B6C3600242429 /* UserInfoController.swift */; };
 		66EB61FC1E7B6C3600242429 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB61FA1E7B6C3600242429 /* UserViewController.swift */; };
 		66EB61FE1E7B6C6400242429 /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB61FD1E7B6C6400242429 /* PublishViewController.swift */; };
@@ -41,6 +49,14 @@
 		66B073B51E77E78C007A978D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		66B073B81E7A2636007A978D /* MainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		66B073BA1E7A26EF007A978D /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		66B41A5F1E971F9A00A5C6BF /* NetworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
+		66B41A601E971F9A00A5C6BF /* UIColor+More.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+More.swift"; sourceTree = "<group>"; };
+		66B41A631E97222E00A5C6BF /* UITextFieldFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldFactory.swift; sourceTree = "<group>"; };
+		66B41A651E97258C00A5C6BF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Baby/Helpers/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		66B41A671E972D6B00A5C6BF /* RegistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistViewController.swift; path = Baby/Helpers/RegistViewController.swift; sourceTree = SOURCE_ROOT; };
+		66B41A691E973BF300A5C6BF /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		66B6726A1E9B6ABC002C939C /* PublishGoodsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishGoodsViewController.swift; sourceTree = "<group>"; };
+		66B6726C1E9B70AD002C939C /* PublishCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishCell.swift; sourceTree = "<group>"; };
 		66EB61F91E7B6C3600242429 /* UserInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoController.swift; sourceTree = "<group>"; };
 		66EB61FA1E7B6C3600242429 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		66EB61FD1E7B6C6400242429 /* PublishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +102,7 @@
 				66EB62031E7B769400242429 /* Login */,
 				66EB61F71E7B6C2600242429 /* UserVC */,
 				66B073B41E77E773007A978D /* MainVC */,
+				66B672691E9B6AA6002C939C /* PublishVC */,
 				66B073B71E7A20F3007A978D /* CustomView */,
 				66B073B01E77D942007A978D /* Helpers */,
 				66B073A51E77D643007A978D /* 3rdparty */,
@@ -122,6 +139,10 @@
 		66B073B01E77D942007A978D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				66B41A691E973BF300A5C6BF /* UserModel.swift */,
+				66B41A631E97222E00A5C6BF /* UITextFieldFactory.swift */,
+				66B41A5F1E971F9A00A5C6BF /* NetworkModel.swift */,
+				66B41A601E971F9A00A5C6BF /* UIColor+More.swift */,
 				66B073BA1E7A26EF007A978D /* Helpers.swift */,
 				66B073B11E77D965007A978D /* Baby-Bridging-Header.h */,
 			);
@@ -140,8 +161,17 @@
 			isa = PBXGroup;
 			children = (
 				66B073B81E7A2636007A978D /* MainCell.swift */,
+				66B6726C1E9B70AD002C939C /* PublishCell.swift */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		66B672691E9B6AA6002C939C /* PublishVC */ = {
+			isa = PBXGroup;
+			children = (
+				66B6726A1E9B6ABC002C939C /* PublishGoodsViewController.swift */,
+			);
+			path = PublishVC;
 			sourceTree = "<group>";
 		};
 		66EB61F71E7B6C2600242429 /* UserVC */ = {
@@ -166,6 +196,8 @@
 		66EB62031E7B769400242429 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				66B41A651E97258C00A5C6BF /* LoginViewController.swift */,
+				66B41A671E972D6B00A5C6BF /* RegistViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -311,9 +343,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66B6726D1E9B70AD002C939C /* PublishCell.swift in Sources */,
+				66B41A641E97222E00A5C6BF /* UITextFieldFactory.swift in Sources */,
+				66B41A611E971F9A00A5C6BF /* NetworkModel.swift in Sources */,
+				66B41A681E972D6B00A5C6BF /* RegistViewController.swift in Sources */,
 				66EB61FE1E7B6C6400242429 /* PublishViewController.swift in Sources */,
+				66B41A661E97258C00A5C6BF /* LoginViewController.swift in Sources */,
 				66B073AD1E77D7FC007A978D /* LCTabbar.m in Sources */,
+				66B41A621E971F9A00A5C6BF /* UIColor+More.swift in Sources */,
 				66EB61FC1E7B6C3600242429 /* UserViewController.swift in Sources */,
+				66B6726B1E9B6ABC002C939C /* PublishGoodsViewController.swift in Sources */,
+				66B41A6A1E973BF300A5C6BF /* UserModel.swift in Sources */,
 				66B073BB1E7A26EF007A978D /* Helpers.swift in Sources */,
 				66EB61FB1E7B6C3600242429 /* UserInfoController.swift in Sources */,
 				66B073941E77D5A5007A978D /* AppDelegate.swift in Sources */,
