@@ -88,6 +88,34 @@ class NetworkModel: NSObject/*YTKRequest*/ {
         
     }
     
+    public class func requestLocation(url:String, complete: ((_ responseObject:Any) -> Void)?){
+        let reqUrl = url
+        var req = URLRequest(url: URL(string: reqUrl)!)
+        req.httpMethod = "GET"
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        NSURLConnection.sendAsynchronousRequest(req, queue: OperationQueue(), completionHandler: {
+            (_ response:URLResponse?, data:Data?, error:Error?) -> Void in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            if error == nil {
+                DispatchQueue.main.async(execute: {
+                    do {
+                        let dic = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! NSDictionary
+                        if complete != nil {
+                            complete!(dic)
+                        }
+                    }catch{
+                        
+                    }
+                })
+            }else{
+                print(error!)
+                SVProgressHUD.dismiss()
+            }
+        })
+        
+        
+    }
+    
     public class func requestGet(_ param:NSDictionary, complete: ((_ responseObject:Any) -> Void)?){
         var reqUrl = "http://112.74.124.86/ybb/index.php"
         let tempParam = NSMutableDictionary(dictionary: param)
@@ -247,6 +275,38 @@ class UploadNetwork: NSObject {
         let manager = AFHTTPSessionManager.init()
         manager.responseSerializer.acceptableContentTypes = Set(arrayLiteral: "text/html","text/plain","application/json","application/xml")
         let reqUrl = "http://mingpinhui.cq1b1.com/api.php" + url
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        manager.post(reqUrl, parameters: tempParam, constructingBodyWith: { (formData) in
+            let format = DateFormatter.init()
+            format.dateFormat = "yyyyMMddHHmmss"
+            let timeName = format.string(from: Date()) + ".jpg"
+            for data in datas {
+                let imgData = UIImageJPEGRepresentation(data as! UIImage, 0.2)
+                formData.appendPart(withFileData: imgData!, name: paramName, fileName: timeName, mimeType: "image/jpg")
+            }
+        }, progress: { (progress) in
+            print(progress.fractionCompleted)
+            SVProgressHUD.showProgress(Float(progress.fractionCompleted))
+            if progress.fractionCompleted >= 1 {
+                SVProgressHUD.dismiss()
+            }
+        }, success: { (task, responseObject) in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            if responseObject != nil {
+                complete!(responseObject!)
+            }
+        }) { (task, error) in
+            print(error)
+        }
+    }
+    
+    public class func request(_ param: [String:String], datas: [Any], paramName: String, complete: ((_ responseObject:Any) -> Void)?) -> Void {
+        let reqUrl = "http://112.74.124.86/ybb/index.php"
+        let tempParam = NSMutableDictionary(dictionary: param)
+        tempParam.setValue("appsbuyer_order", forKey: "app")
+        
+        let manager = AFHTTPSessionManager.init()
+        manager.responseSerializer.acceptableContentTypes = Set(arrayLiteral: "text/html","text/plain","application/json","application/xml")
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         manager.post(reqUrl, parameters: tempParam, constructingBodyWith: { (formData) in
             let format = DateFormatter.init()

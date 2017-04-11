@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class PublishCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var collectionHeight: NSLayoutConstraint!
     @IBOutlet weak var collection: UICollectionView!
     
-    var imgArr:[UIImage] = [UIImage]()
     var vc:UIViewController?
+    var imgArr:[UIImage] = [UIImage]()
+    var imgUrlArr:[String] = [String]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -68,7 +70,9 @@ class PublishCell: UITableViewCell, UICollectionViewDataSource, UICollectionView
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        imgArr.append(info[UIImagePickerControllerOriginalImage] as! UIImage)
+        let img = info[UIImagePickerControllerOriginalImage] as! UIImage
+        imgArr.append(img)
+        (vc as! PublishGoodsViewController).imgArr = imgArr
         self.collection.reloadData()
         vc?.dismiss(animated: true, completion: nil)
         
@@ -76,6 +80,17 @@ class PublishCell: UITableViewCell, UICollectionViewDataSource, UICollectionView
             (vc as! PublishGoodsViewController).tableView.beginUpdates()
             self.collectionHeight.constant = 99 * 2 + 10
             (vc as! PublishGoodsViewController).tableView.endUpdates()
+        }
+        
+        UploadNetwork.request(["act":"up_laod_api","user_id":UserModel.share.userId,"vp":UserModel.share.password], data: img, paramName: "image") { (dic) in
+            if Int((dic as! NSDictionary)["msg"] as! String) == 1 {
+                SVProgressHUD.dismiss()
+                print(dic)
+                self.imgUrlArr.append((dic as! NSDictionary)["retval"] as! String)
+                (self.vc as! PublishGoodsViewController).imgUrlArr = self.imgUrlArr
+            }else{
+                SVProgressHUD.showError(withStatus: (dic as! NSDictionary)["retval"] as! String)
+            }
         }
     }
 

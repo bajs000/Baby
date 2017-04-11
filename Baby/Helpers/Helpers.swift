@@ -8,8 +8,15 @@
 
 import Foundation
 import UIKit
+import CoreLocation
+import SVProgressHUD
 
-class Helpers : NSObject {
+class Helpers : NSObject, CLLocationManagerDelegate {
+    
+    static fileprivate var manager:CLLocationManager?
+    static let share = Helpers()
+    static var latitude = 0.0
+    static var longitude = 0.0
     
     public class func screanSize() -> CGSize{
         return UIScreen.main.bounds.size
@@ -42,6 +49,31 @@ class Helpers : NSObject {
         context!.fill(rect)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         return newImage!
+    }
+    
+    public class func locationManager(){
+        if CLLocationManager.locationServicesEnabled() {
+            manager = CLLocationManager()
+            manager?.delegate = self.share
+            manager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            manager?.distanceFilter = 200
+            manager?.requestWhenInUseAuthorization()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if (status == CLAuthorizationStatus.authorizedWhenInUse) {
+            manager.startUpdatingLocation()
+        }else {
+            SVProgressHUD.showError(withStatus: "请到设置里面打开定位，我们才能给你提供更好的服务")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last
+        Helpers.latitude = (location?.coordinate.latitude)!
+        Helpers.longitude = (location?.coordinate.longitude)!
+        print("latitude:\(String((location?.coordinate.latitude)!)),longitude:\(String((location?.coordinate.longitude)!))")
     }
     
 }

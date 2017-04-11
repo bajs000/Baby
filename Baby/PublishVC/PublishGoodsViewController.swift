@@ -7,17 +7,28 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class PublishGoodsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewBottom: NSLayoutConstraint!
     
+    var titleTextField:UITextField?
+    var detailTextField:UITextView?
+    var imgArr = [UIImage]()
+    var imgUrlArr = [String]()
+    var locationLabel:UILabel?
+    var priceTextField:UITextField?
+    var depositTextField:UITextField?
+    var freightTextField:UITextField?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100
         self.title = "发布玩具"
+        requestUserLocation()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -104,21 +115,22 @@ class PublishGoodsViewController: UIViewController, UITableViewDelegate, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentify, for: indexPath)
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                
+                titleTextField = cell.viewWithTag(1) as? UITextField
             }else if indexPath.row == 1 {
                 (cell.viewWithTag(1) as! UITextView).delegate = self
+                detailTextField = cell.viewWithTag(1) as? UITextView
             }else if indexPath.row == 2 {
                 (cell as! PublishCell).vc = self
             }else if indexPath.row == 3 {
-                
+                locationLabel = cell.viewWithTag(1) as? UILabel
             }
         }else{
             if indexPath.row == 0 {
-                
+                priceTextField = cell.viewWithTag(1) as? UITextField
             }else if indexPath.row == 1 {
-                
+                depositTextField = cell.viewWithTag(1) as? UITextField
             }else if indexPath.row == 2 {
-                
+                freightTextField = cell.viewWithTag(1) as? UITextField
             }
         }
         return cell
@@ -183,4 +195,63 @@ class PublishGoodsViewController: UIViewController, UITableViewDelegate, UITable
         self.dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func publishBtnDidClick(_ sender: Any) {
+        if titleTextField?.text?.characters.count == 0 {
+            SVProgressHUD.showError(withStatus: "请输入标题")
+            return
+        }
+        if detailTextField?.text?.characters.count == 0 {
+            SVProgressHUD.showError(withStatus: "请输入闲置玩具内容")
+            return
+        }
+        if priceTextField?.text?.characters.count == 0 {
+            SVProgressHUD.showError(withStatus: "请输入价格")
+            return
+        }
+        if depositTextField?.text?.characters.count == 0 {
+            SVProgressHUD.showError(withStatus: "请输入押金")
+            return
+        }
+        SVProgressHUD.show()
+        var param = [String:String]()
+        param = ["act":"upload_goods",
+                 "user_id":UserModel.share.userId,
+                 "vp":UserModel.share.password,
+                 "price":priceTextField!.text!,
+                 "deposit":depositTextField!.text!,
+                 "description":detailTextField!.text,
+                 "goods_name":titleTextField!.text!,
+                 "longitude":String(Helpers.longitude),
+                 "latitude":String(Helpers.latitude),
+                 "region_name":locationLabel!.text!]
+        if self.imgUrlArr.count > 0 {
+            param["app_default_image"] = self.imgUrlArr[0]
+            var i = 1
+            for url in self.imgUrlArr {
+                param["img" + String(i)] = url
+                i = i + 1
+            }
+        }
+        NetworkModel.requestGet(param as NSDictionary) { (dic) in
+            if Int((dic as! NSDictionary)["msg"] as! String) == 1 {
+                SVProgressHUD.showSuccess(withStatus: "发布成功")
+                self.dismiss(animated: true, completion: nil)
+            }else{
+                SVProgressHUD.showError(withStatus: (dic as! NSDictionary)["retval"] as! String)
+            }
+        }
+    }
+    
+    func requestUserLocation() -> Void {
+        SVProgressHUD.show()
+        NetworkModel.requestLocation(url: "http://restapi.amap.com/v3/geocode/regeo?key=6632969fe0929070d2cd5c2a50f27ca9&location=" + String(Helpers.longitude) + "," + String(Helpers.latitude)) { (dic) in
+            print(dic)
+            if Int((dic as! NSDictionary)["status"] as! String) == 1 {
+                self.locationLabel?.text = ((dic as! NSDictionary)["regeocode"] as! NSDictionary)["formatted_address"] as? String
+                SVProgressHUD.dismiss()
+            }else {
+                SVProgressHUD.showError(withStatus: "定位错误")
+            }
+        }
+    }
 }

@@ -26,6 +26,7 @@
 		66B41A6A1E973BF300A5C6BF /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B41A691E973BF300A5C6BF /* UserModel.swift */; };
 		66B6726B1E9B6ABC002C939C /* PublishGoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B6726A1E9B6ABC002C939C /* PublishGoodsViewController.swift */; };
 		66B6726D1E9B70AD002C939C /* PublishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B6726C1E9B70AD002C939C /* PublishCell.swift */; };
+		66B6726F1E9B879C002C939C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B6726E1E9B879C002C939C /* CoreLocation.framework */; };
 		66EB61FB1E7B6C3600242429 /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB61F91E7B6C3600242429 /* UserInfoController.swift */; };
 		66EB61FC1E7B6C3600242429 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB61FA1E7B6C3600242429 /* UserViewController.swift */; };
 		66EB61FE1E7B6C6400242429 /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB61FD1E7B6C6400242429 /* PublishViewController.swift */; };
@@ -57,6 +58,7 @@
 		66B41A691E973BF300A5C6BF /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		66B6726A1E9B6ABC002C939C /* PublishGoodsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishGoodsViewController.swift; sourceTree = "<group>"; };
 		66B6726C1E9B70AD002C939C /* PublishCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishCell.swift; sourceTree = "<group>"; };
+		66B6726E1E9B879C002C939C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		66EB61F91E7B6C3600242429 /* UserInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoController.swift; sourceTree = "<group>"; };
 		66EB61FA1E7B6C3600242429 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		66EB61FD1E7B6C6400242429 /* PublishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66B6726F1E9B879C002C939C /* CoreLocation.framework in Frameworks */,
 				226D74CDCB3F47B72598E764 /* Pods_Baby.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,6 +208,7 @@
 		C0AB8CAD22AF3D3949B60E6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				66B6726E1E9B879C002C939C /* CoreLocation.framework */,
 				C5AA92DCF0AFC5317CA3F8F6 /* Pods_Baby.framework */,
 			);
 			name = Frameworks;

@@ -21,6 +21,7 @@ class MainViewController: UITableViewController, UICollectionViewDelegate, UICol
         searchBar.clipsToBounds = true
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        Helpers.locationManager()
     }
     
     override func viewWillAppear(_ animated: Bool) {
