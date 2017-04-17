@@ -37,6 +37,23 @@ class Helpers : NSObject, CLLocationManagerDelegate {
         return superView
     }
     
+    public class func findClass(_ className:AnyClass,at parentView:UIView) -> UIView? {
+        var view:UIView? = nil
+        for v in parentView.subviews {
+            if v.isKind(of: className) {
+                view = v
+                break
+            }else{
+                view = self.findClass(className, at: v)
+                if view != nil {
+                    break
+                }
+            }
+        }
+        
+        return view
+    }
+    
     public class func image(_ image:UIImage, with color:UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
         let context = UIGraphicsGetCurrentContext()
