@@ -17,6 +17,7 @@ class Helpers : NSObject, CLLocationManagerDelegate {
     static let share = Helpers()
     static var latitude = 0.0
     static var longitude = 0.0
+    static var completeLocation: (() -> Void)?
     
     public class func screanSize() -> CGSize{
         return UIScreen.main.bounds.size
@@ -91,6 +92,9 @@ class Helpers : NSObject, CLLocationManagerDelegate {
         Helpers.latitude = (location?.coordinate.latitude)!
         Helpers.longitude = (location?.coordinate.longitude)!
         print("latitude:\(String((location?.coordinate.latitude)!)),longitude:\(String((location?.coordinate.longitude)!))")
+        if Helpers.completeLocation != nil {
+            Helpers.completeLocation!()
+        }
     }
     
 }

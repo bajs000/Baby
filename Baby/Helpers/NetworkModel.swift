@@ -119,7 +119,9 @@ class NetworkModel: NSObject/*YTKRequest*/ {
     public class func requestGet(_ param:NSDictionary, complete: ((_ responseObject:Any) -> Void)?){
         var reqUrl = "http://112.74.124.86/ybb/index.php"
         let tempParam = NSMutableDictionary(dictionary: param)
-        tempParam.setValue("appsmember", forKey: "app")
+        if tempParam["app"] == nil {
+            tempParam.setValue("appsmember", forKey: "app")
+        }
 //        tempParam.setValue("1.1", forKey: "version")
 //        tempParam.setValue("ios", forKey: "terminal")
         

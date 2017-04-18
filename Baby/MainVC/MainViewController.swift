@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import SVProgressHUD
+import SDWebImage
 
 class MainViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var headerCollectinView: UICollectionView!
     @IBOutlet var headerView: UIView!
 
+    var requestIng:Bool = false
+    var dataSource:NSArray = NSArray()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "重庆", style: .plain, target: self, action: #selector(leftBarItemDidClick))
@@ -21,6 +26,11 @@ class MainViewController: UITableViewController, UICollectionViewDelegate, UICol
         searchBar.clipsToBounds = true
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        Helpers.completeLocation = {
+            if !self.requestIng {
+                self.requestMain()
+            }
+        }
         Helpers.locationManager()
     }
     
@@ -54,7 +64,7 @@ class MainViewController: UITableViewController, UICollectionViewDelegate, UICol
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 10
+        return dataSource.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -87,7 +97,9 @@ class MainViewController: UITableViewController, UICollectionViewDelegate, UICol
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+//        let dic = self.dataSource[indexPath.section] as! NSDictionary
         (cell as! MainCell).indexPath = indexPath
+//        (cell.viewWithTag(1) as! UIImageView).sd_setImage(with: URL(string: Helpers.baseImgUrl() + (dic[" "] as! String))!)
         return cell
     }
     
@@ -162,4 +174,26 @@ class MainViewController: UITableViewController, UICollectionViewDelegate, UICol
         UIApplication.shared.keyWindow?.endEditing(true)
     }
 
+    func requestMain() -> Void {
+        SVProgressHUD.show()
+        requestIng = true
+        NetworkModel.requestGet(["app":"appsdefault","act":"index","longitude":"","latitude":""]) { (dic) in
+            if Int((dic as! NSDictionary)["msg"] as! String) == 1 {
+                SVProgressHUD.dismiss()
+                let userInfo = (dic as! NSDictionary)["retval"] as! String
+                let data = userInfo.data(using: .utf8)
+                do {
+                    let jsonDic = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! NSDictionary
+                    print(jsonDic)
+                    self.dataSource = jsonDic["data"] as! NSArray
+                    self.tableView.reloadData()
+                }catch{
+                    
+                }
+            }else{
+                SVProgressHUD.showError(withStatus: (dic as! NSDictionary)["retval"] as! String)
+            }
+        }
+    }
+    
 }
