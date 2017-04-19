@@ -100,6 +100,7 @@
 #pragma mark navVC代理
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
     UIViewController *root = navigationController.viewControllers.firstObject;
+    self.tabBar.hidden = true;
     if (viewController != root) {
         //更改导航控制器的高度
         navigationController.view.frame = self.view.bounds;

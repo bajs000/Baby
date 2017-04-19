@@ -10,7 +10,7 @@ import UIKit
 import SVProgressHUD
 import SDWebImage
 
-class MainViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MainViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     @IBOutlet weak var headerCollectinView: UICollectionView!
     @IBOutlet var headerView: UIView!
@@ -26,6 +26,9 @@ class MainViewController: UITableViewController, UICollectionViewDelegate, UICol
         searchBar.clipsToBounds = true
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.navigationController?.delegate = self.tabBarController as? UINavigationControllerDelegate
+        searchBar.delegate = self
+        
         Helpers.completeLocation = {
             if !self.requestIng {
                 self.requestMain()
@@ -97,10 +100,19 @@ class MainViewController: UITableViewController, UICollectionViewDelegate, UICol
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-//        let dic = self.dataSource[indexPath.section] as! NSDictionary
+        let dic = self.dataSource[indexPath.section] as! NSDictionary
         (cell as! MainCell).indexPath = indexPath
+        
 //        (cell.viewWithTag(1) as! UIImageView).sd_setImage(with: URL(string: Helpers.baseImgUrl() + (dic[" "] as! String))!)
+        (cell.viewWithTag(3) as! UILabel).text = "￥" + (dic["price"] as! String) + "/天"
+        (cell as! MainCell).orderInfo = dic
+        (cell.viewWithTag(5) as! UILabel).text = dic["description"] as? String
+        (cell.viewWithTag(6) as! UILabel).text = "来自" + (dic["region_name"] as! String)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "detailPush", sender: indexPath)
     }
     
     // MARK:- UICollectionView delegate
@@ -161,15 +173,24 @@ class MainViewController: UITableViewController, UICollectionViewDelegate, UICol
     }
     */
 
-    /*
+    // MARK: - UISearchBarDelegate
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        self.performSegue(withIdentifier: "searchPush", sender: nil)
+        return true
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.destination.isKind(of: GoodsDetailViewController.self){
+            let indexPath = sender as? IndexPath
+            let dic = self.dataSource[indexPath!.section] as! NSDictionary
+            (segue.destination as! GoodsDetailViewController).orderInfo = dic
+            (segue.destination as! GoodsDetailViewController).pushByOther = false
+        }
     }
-    */
+    
     func leftBarItemDidClick() -> Void {
         UIApplication.shared.keyWindow?.endEditing(true)
     }
@@ -177,14 +198,13 @@ class MainViewController: UITableViewController, UICollectionViewDelegate, UICol
     func requestMain() -> Void {
         SVProgressHUD.show()
         requestIng = true
-        NetworkModel.requestGet(["app":"appsdefault","act":"index","longitude":"","latitude":""]) { (dic) in
+        NetworkModel.requestGet(["app":"appsdefault","act":"index","longitude":String(Helpers.longitude),"latitude":String(Helpers.latitude)]) { (dic) in
             if Int((dic as! NSDictionary)["msg"] as! String) == 1 {
                 SVProgressHUD.dismiss()
                 let userInfo = (dic as! NSDictionary)["retval"] as! String
                 let data = userInfo.data(using: .utf8)
                 do {
                     let jsonDic = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! NSDictionary
-                    print(jsonDic)
                     self.dataSource = jsonDic["data"] as! NSArray
                     self.tableView.reloadData()
                 }catch{
