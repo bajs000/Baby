@@ -103,7 +103,9 @@ class MainViewController: UITableViewController, UICollectionViewDelegate, UICol
         let dic = self.dataSource[indexPath.section] as! NSDictionary
         (cell as! MainCell).indexPath = indexPath
         
-//        (cell.viewWithTag(1) as! UIImageView).sd_setImage(with: URL(string: Helpers.baseImgUrl() + (dic[" "] as! String))!)
+        (cell.viewWithTag(1) as! UIImageView).sd_setImage(with: URL(string: (Helpers.baseImgUrl() + (dic["portrait"] as! String) as NSString).addingPercentEscapes(using: String.Encoding.utf8.rawValue)!)!)
+        cell.viewWithTag(1)?.layer.cornerRadius = 29
+        (cell.viewWithTag(2) as! UILabel).text = dic["user_name"] as? String
         (cell.viewWithTag(3) as! UILabel).text = "￥" + (dic["price"] as! String) + "/天"
         (cell as! MainCell).orderInfo = dic
         (cell.viewWithTag(5) as! UILabel).text = dic["description"] as? String
