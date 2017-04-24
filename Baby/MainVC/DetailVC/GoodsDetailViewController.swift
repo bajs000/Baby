@@ -97,6 +97,9 @@ class GoodsDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentify, for: indexPath)
         if indexPath.row ==  0{
+            (cell.viewWithTag(1) as! UIImageView).sd_setImage(with: URL(string: (Helpers.baseImgUrl() + (orderInfo?["portrait"] as! String) as NSString).addingPercentEscapes(using: String.Encoding.utf8.rawValue)!)!)
+            cell.viewWithTag(1)?.layer.cornerRadius = 29
+            (cell.viewWithTag(2) as! UILabel).text = orderInfo?["user_name"] as? String
             (cell.viewWithTag(3) as! UILabel).text = "￥" + (orderInfo!["price"] as! String) + "/天"
             (cell.viewWithTag(5) as! UILabel).text = orderInfo!["description"] as? String
         }else{
@@ -149,15 +152,16 @@ class GoodsDetailViewController: UIViewController, UITableViewDelegate, UITableV
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "surePush" {
+            (segue.destination as! SureOrderViewController).orderInfo = orderInfo
+        }
     }
-    */
+    
     @IBAction func storeBtnDidClick(_ sender: Any) {
         SVProgressHUD.show()
         NetworkModel.requestGet(["act":"add_mycarts","user_id":UserModel.share.userId,"vp":UserModel.share.password,"goods_id":orderInfo!["goods_id"] as! String]) { (dic) in
@@ -168,10 +172,6 @@ class GoodsDetailViewController: UIViewController, UITableViewDelegate, UITableV
                 SVProgressHUD.showError(withStatus: (dic as! NSDictionary)["retval"] as! String)
             }
         }
-    }
-    
-    @IBAction func orderBtnDidClick(_ sender: UIButton) {
-        
     }
     
 //    func requestDetail() -> Void {
