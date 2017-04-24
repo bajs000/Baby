@@ -78,7 +78,7 @@ class PublishCell: UITableViewCell, UICollectionViewDataSource, UICollectionView
         
         if imgArr.count >= 3 {
             (vc as! PublishGoodsViewController).tableView.beginUpdates()
-            self.collectionHeight.constant = 99 * 2 + 10
+            self.collectionHeight.constant = CGFloat(99 * 2 + 10)
             (vc as! PublishGoodsViewController).tableView.endUpdates()
         }
         

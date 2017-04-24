@@ -36,7 +36,7 @@
 		66B86B481E9DA9DF00EC9339 /* MyPublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B86B471E9DA9DF00EC9339 /* MyPublishViewController.swift */; };
 		66EB61FB1E7B6C3600242429 /* UserInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB61F91E7B6C3600242429 /* UserInfoController.swift */; };
 		66EB61FC1E7B6C3600242429 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB61FA1E7B6C3600242429 /* UserViewController.swift */; };
-		66EB61FE1E7B6C6400242429 /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB61FD1E7B6C6400242429 /* PublishViewController.swift */; };
+		66EB61FE1E7B6C6400242429 /* OthersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB61FD1E7B6C6400242429 /* OthersViewController.swift */; };
 		66EB62021E7B732300242429 /* HireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB62011E7B732300242429 /* HireViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,7 +75,7 @@
 		66B86B471E9DA9DF00EC9339 /* MyPublishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPublishViewController.swift; sourceTree = "<group>"; };
 		66EB61F91E7B6C3600242429 /* UserInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoController.swift; sourceTree = "<group>"; };
 		66EB61FA1E7B6C3600242429 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
-		66EB61FD1E7B6C6400242429 /* PublishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
+		66EB61FD1E7B6C6400242429 /* OthersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OthersViewController.swift; sourceTree = "<group>"; };
 		66EB62011E7B732300242429 /* HireViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HireViewController.swift; sourceTree = "<group>"; };
 		750763371A0439A1F48D101B /* Pods-Baby.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baby.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Baby/Pods-Baby.debug.xcconfig"; sourceTree = "<group>"; };
 		BB3A09CC14FFF2CD1A76D5B1 /* Pods-Baby.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baby.release.xcconfig"; path = "Pods/Target Support Files/Pods-Baby/Pods-Baby.release.xcconfig"; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 		66EB61F81E7B6C3600242429 /* UserFuction */ = {
 			isa = PBXGroup;
 			children = (
-				66EB61FD1E7B6C6400242429 /* PublishViewController.swift */,
+				66EB61FD1E7B6C6400242429 /* OthersViewController.swift */,
 				66EB62011E7B732300242429 /* HireViewController.swift */,
 				66B86B471E9DA9DF00EC9339 /* MyPublishViewController.swift */,
 				666BE1401E9E21F7006BBFFF /* AddressViewController.swift */,
@@ -336,7 +336,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E712310C8305FDFA75D30F3E /* [CP] Copy Pods Resources */ = {
@@ -380,7 +380,7 @@
 				66B41A641E97222E00A5C6BF /* UITextFieldFactory.swift in Sources */,
 				66B41A611E971F9A00A5C6BF /* NetworkModel.swift in Sources */,
 				66B41A681E972D6B00A5C6BF /* RegistViewController.swift in Sources */,
-				66EB61FE1E7B6C6400242429 /* PublishViewController.swift in Sources */,
+				66EB61FE1E7B6C6400242429 /* OthersViewController.swift in Sources */,
 				66B41A661E97258C00A5C6BF /* LoginViewController.swift in Sources */,
 				66B073AD1E77D7FC007A978D /* LCTabbar.m in Sources */,
 				66B41A621E971F9A00A5C6BF /* UIColor+More.swift in Sources */,
@@ -524,6 +524,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PA5REWWP2Y;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Baby/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -540,6 +541,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PA5REWWP2Y;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Baby/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

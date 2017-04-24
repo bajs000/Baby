@@ -110,6 +110,7 @@ class MainViewController: UITableViewController, UICollectionViewDelegate, UICol
         (cell as! MainCell).orderInfo = dic
         (cell.viewWithTag(5) as! UILabel).text = dic["description"] as? String
         (cell.viewWithTag(6) as! UILabel).text = "来自" + (dic["region_name"] as! String)
+        (cell.viewWithTag(7) as! UIButton).addTarget(self, action: #selector(avatarBtnDidClick(_:)), for: .touchUpInside)
         return cell
     }
     
@@ -191,6 +192,15 @@ class MainViewController: UITableViewController, UICollectionViewDelegate, UICol
             (segue.destination as! GoodsDetailViewController).orderInfo = dic
             (segue.destination as! GoodsDetailViewController).pushByOther = false
         }
+    }
+    
+    func avatarBtnDidClick(_ sender: UIButton) -> Void {
+        let cell = Helpers.findSuperViewClass(UITableViewCell.self, with: sender)
+        let indexPath = self.tableView.indexPath(for: cell as! UITableViewCell)
+        let dic = self.dataSource[(indexPath?.section)!] as! NSDictionary
+        let vc = OthersViewController.getInstance()
+        vc.dataSource = dic
+        _ = self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func leftBarItemDidClick() -> Void {

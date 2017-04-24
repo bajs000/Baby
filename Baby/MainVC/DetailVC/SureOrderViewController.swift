@@ -48,6 +48,10 @@ class SureOrderViewController: UITableViewController {
         goodsPrice.text = "￥" + (orderInfo?["price"] as! String) + "/天"
         goodsDeposit.text = "押金￥" + (orderInfo?["deposit"] as! String)
         
+        money.text = "￥" + (orderInfo?["price"] as! String) + "/天"
+        depositLabel.text = "￥" + (orderInfo?["deposit"] as! String)
+        totalMoney.text = "￥" + (orderInfo?["price_sall"] as! String)
+        
         requestUserLocation()
     }
 

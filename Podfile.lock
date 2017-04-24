@@ -14,24 +14,30 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - AliPay (2.1.2)
   - Masonry (1.0.2)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
   - SVProgressHUD (2.1.2)
+  - WechatOpenSDK (1.7.7)
 
 DEPENDENCIES:
   - AFNetworking
+  - AliPay
   - Masonry
   - SDWebImage
   - SVProgressHUD
+  - WechatOpenSDK
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AliPay: 2bd35a4e486d2a8c035043023cd846e886bb21d1
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  WechatOpenSDK: cbd332148eb792d444ed4eec94f421d98f2046ee
 
-PODFILE CHECKSUM: 7fa05eca4fb0c798044f97f3773f06ee65a161b3
+PODFILE CHECKSUM: 9a0ebcb1209a0250ec65d361f04bbb611a7a519d
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

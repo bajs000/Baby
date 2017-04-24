@@ -9,5 +9,8 @@ target 'Baby' do
   pod 'Masonry'
   pod 'SDWebImage'
   pod 'AFNetworking'
-
+  #pod 'EaseMobSDKFull'
+  pod 'WechatOpenSDK'
+  pod 'AliPay'
+  
 end

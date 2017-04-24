@@ -105,11 +105,13 @@ class GoodsDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }else{
 //            (cell.viewWithTag(1) as! UIImageView).sd_setImage(with: URL(string: Helpers.baseImgUrl() + imgArr[indexPath.row - 1])!)
             (cell.viewWithTag(1) as! UIImageView).sd_setImage(with: URL(string: Helpers.baseImgUrl() + imgArr[indexPath.row - 1])!, completed: { (image, error, type, url) in
-                let width = Helpers.screanSize().width - 24
-                let height = width * (image?.size.height)! / (image?.size.width)!
-                if self.imgHeightDic[String(indexPath.row)] != height{
-                    self.imgHeightDic[String(indexPath.row)] = height
-                    self.tableView.reloadData()
+                if image != nil{
+                    let width = Helpers.screanSize().width - 24
+                    let height = width * (image?.size.height)! / (image?.size.width)!
+                    if self.imgHeightDic[String(indexPath.row)] != height{
+                        self.imgHeightDic[String(indexPath.row)] = height
+                        self.tableView.reloadData()
+                    }
                 }
             })
         }
@@ -158,7 +160,9 @@ class GoodsDetailViewController: UIViewController, UITableViewDelegate, UITableV
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "surePush" {
-            (segue.destination as! SureOrderViewController).orderInfo = orderInfo
+            let tempDic = NSMutableDictionary(dictionary: orderInfo!)
+            tempDic.addEntries(from: sender as! [AnyHashable : Any])
+            (segue.destination as! SureOrderViewController).orderInfo = tempDic
         }
     }
     
@@ -168,6 +172,25 @@ class GoodsDetailViewController: UIViewController, UITableViewDelegate, UITableV
             if Int((dic as! NSDictionary)["msg"] as! String) == 1 {
                 SVProgressHUD.showSuccess(withStatus: "收藏成功")
                 self.dismiss(animated: true, completion: nil)
+            }else{
+                SVProgressHUD.showError(withStatus: (dic as! NSDictionary)["retval"] as! String)
+            }
+        }
+    }
+    
+    @IBAction func makeOrderBtnDidClick(_ sender: Any) {
+        SVProgressHUD.show()
+        NetworkModel.requestGet(["app":"appsorder","act":"make_order","goods_ids":orderInfo!["goods_id"] as! String,"user_id":UserModel.share.userId,"vp":UserModel.share.password,"rent_days":"5"]) { (dic) in
+            if Int((dic as! NSDictionary)["msg"] as! String) == 1 {
+                SVProgressHUD.showSuccess(withStatus: "下单成功")
+                let userInfo = (dic as! NSDictionary)["retval"] as! String
+                let data = userInfo.data(using: .utf8)
+                do {
+                    let jsonDic = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! NSDictionary
+                    self.performSegue(withIdentifier: "surePush", sender: jsonDic)
+                }catch{
+                    
+                }
             }else{
                 SVProgressHUD.showError(withStatus: (dic as! NSDictionary)["retval"] as! String)
             }
