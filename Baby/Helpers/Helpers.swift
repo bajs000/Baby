@@ -97,4 +97,16 @@ class Helpers : NSObject, CLLocationManagerDelegate {
         }
     }
     
+    public class func timeChange(_ timeStamp: String) -> String {
+        //转换为时间
+        let timeInterval:TimeInterval = TimeInterval(timeStamp)!
+        let date = NSDate(timeIntervalSince1970: timeInterval)
+        
+        
+        //格式话输出
+        let dformatter = DateFormatter()
+        dformatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
+        return dformatter.string(from: date as Date)
+    }
+    
 }

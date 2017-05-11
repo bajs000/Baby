@@ -38,6 +38,7 @@
 		66EB61FC1E7B6C3600242429 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB61FA1E7B6C3600242429 /* UserViewController.swift */; };
 		66EB61FE1E7B6C6400242429 /* OthersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB61FD1E7B6C6400242429 /* OthersViewController.swift */; };
 		66EB62021E7B732300242429 /* HireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EB62011E7B732300242429 /* HireViewController.swift */; };
+		F8FD73131EC410DC008342F6 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FD73121EC410DC008342F6 /* OrderDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		750763371A0439A1F48D101B /* Pods-Baby.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baby.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Baby/Pods-Baby.debug.xcconfig"; sourceTree = "<group>"; };
 		BB3A09CC14FFF2CD1A76D5B1 /* Pods-Baby.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Baby.release.xcconfig"; path = "Pods/Target Support Files/Pods-Baby/Pods-Baby.release.xcconfig"; sourceTree = "<group>"; };
 		C5AA92DCF0AFC5317CA3F8F6 /* Pods_Baby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Baby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8FD73121EC410DC008342F6 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 				666BE1401E9E21F7006BBFFF /* AddressViewController.swift */,
 				6613D3A61EA59DA4000EC173 /* AddAddressViewController.swift */,
 				66269DF91EA7377B00D7400D /* StoreViewController.swift */,
+				F8FD73121EC410DC008342F6 /* OrderDetailViewController.swift */,
 			);
 			path = UserFuction;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				66B073AD1E77D7FC007A978D /* LCTabbar.m in Sources */,
 				66B41A621E971F9A00A5C6BF /* UIColor+More.swift in Sources */,
 				66EB61FC1E7B6C3600242429 /* UserViewController.swift in Sources */,
+				F8FD73131EC410DC008342F6 /* OrderDetailViewController.swift in Sources */,
 				66B6726B1E9B6ABC002C939C /* PublishGoodsViewController.swift in Sources */,
 				66269DFA1EA7377B00D7400D /* StoreViewController.swift in Sources */,
 				66B41A6A1E973BF300A5C6BF /* UserModel.swift in Sources */,
